@@ -20,5 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @task = @user.tasks.visible_to(current_user)
   end
 end
