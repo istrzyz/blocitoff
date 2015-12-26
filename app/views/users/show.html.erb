@@ -4,16 +4,16 @@
       <br />
 
       <div class="media-body">
-        <h2 class="media-heading"><%= @user.name %></h2>
+        <h2 class="media-heading"><%= current_user.email %></h2>
         <small>
-          <%= pluralize(@user.tasks.count, 'task') %>,
+          <%= pluralize(current_user.items.count, 'item') %>,
 
         </small>
       </div>
 
       <div class="row">
       <div class="col-md-8">
-        <%= render partial: "labels/list", locals: { labels: @post.labels } %>
+        <%# render partial: "labels/list", locals: { labels: @post.labels } %>
         <br />
       </div>
      </div>

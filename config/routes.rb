@@ -1,20 +1,12 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  root 'welcome#index'
+  root to: 'welcome#index'
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions'
-  }
+  devise_for :users
 
-  get 'item/create'
-
-  resources :tasks
-  resources :users, only: [:new, :create, :show]
-
-  resources :users do
-    resources :items, only: [:create]
-    resources :tasks, only: [:create]
+  resources :users, only: [:show] do
+    resources :items, only: [:create, :destroy]
   end
 
 
