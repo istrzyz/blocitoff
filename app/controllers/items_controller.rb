@@ -9,11 +9,14 @@ class ItemController < ApplicationController
     @item = Item.find(params[:id])
 
     if @item.destroy
-      flash[:notice] = "\"#{@item.title}\" was deleted successfully."
-       redirect_to @item.topic
+      flash[:notice] = "Item was deleted"
     else
-      flash[:error] = "There was an error deleting the post."
-      render :show
+      flash[:error] = "There was an error deleting the item."
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 end
