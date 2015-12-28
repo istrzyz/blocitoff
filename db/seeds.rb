@@ -1,12 +1,19 @@
 include RandomData
 
 50.times do
-  Task.create!(
-  title: RandomData.random_sentence,
-  body: RandomData.random_paragraph
+  User.create!(
+  email: Faker::Internet.email,
+  password: Faker::Internet.password
   )
 end
-tasks = Task.all
+
+50.times do
+  Item.create!(
+  name: Faker::Lorem.sentence
+  )
+end
+
+items = Item.all
 
 puts "Seed finished"
-puts "#{Task.count} tasks created"
+puts "#{Item.count} items created"

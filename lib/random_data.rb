@@ -1,13 +1,4 @@
 module RandomData
-  def random_paragraph
-    sentences = []
-    rand(4..6).times do
-      sentences << random_sentence
-    end
-
-    sentences.join(" ")
-  end
-
   def random_sentence
     strings = []
     rand(3..8).times do

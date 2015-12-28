@@ -29,7 +29,10 @@ gem 'bcrypt'
 
 gem 'faker'
 
+gem 'ffaker'
+
 gem 'bootstrap-sass'
+
 
 group :production do
   gem 'pg'
