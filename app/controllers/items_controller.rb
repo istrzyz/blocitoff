@@ -1,8 +1,14 @@
-class ItemController < ApplicationController
+class ItemsController < ApplicationController
 
   def create
-    @item = Item.find(params[:item_id])
-    @item.user = current_user
+    @item = current_user.items.build(item_params)
+    if @item.save
+      flash.now[:notice] = "Item create"
+    else
+      flash.now[:error] = "Somthing went wrong"
+    end
+
+    redirect_to current_user
   end
 
   def destroy
@@ -18,5 +24,10 @@ class ItemController < ApplicationController
       format.html
       format.js
     end
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(:name)
   end
 end
