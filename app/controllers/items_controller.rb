@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
+    @item = current_user.items.destroy(item_params)
 
     if @item.destroy
       flash[:notice] = "Item was deleted"
