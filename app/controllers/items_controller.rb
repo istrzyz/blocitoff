@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     if @item.destroy
-      flash[:notice] = "Item was deleted"
+      flash[:notice] = "Item was deleted."
     else
       flash[:error] = "There was an error deleting the item."
     end
