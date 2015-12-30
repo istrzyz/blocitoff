@@ -4,7 +4,6 @@
     <%= item.name %>
     | <%= link_to "Delete", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
 
-    <td><%= item %></td>
     <td>Time left <%= distance_of_time_in_words(item.created_at, 7.days.from_now, options = {})  %></td>
 
   </div>
